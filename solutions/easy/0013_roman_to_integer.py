@@ -49,17 +49,18 @@ class Solution:
             'M': 1000
         }
 
-        symbols = list(s)
+        pos = len(s) - 1
         result = 0
         prev_value = result
 
-        while symbols:
-            curr_value = sym_values[symbols.pop()]
+        while pos >= 0:
+            curr_value = sym_values[s[pos]]
             if curr_value < prev_value:
                 result -= curr_value
             else:
                 result += curr_value
 
             prev_value = curr_value
+            pos -= 1
 
         return result
